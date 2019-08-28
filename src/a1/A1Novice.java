@@ -36,6 +36,7 @@ public class A1Novice {
 					double price = scan.nextDouble();
 					cost[p] = price;
 				
+					
 				}
 				
 				totals[i] = checkout(quantity, cost); // function call to find the total cost of transaction
