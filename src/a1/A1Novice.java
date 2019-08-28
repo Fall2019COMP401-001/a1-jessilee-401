@@ -46,7 +46,7 @@ public class A1Novice {
 				
 				// to print out the required output:
 				
-				System.out.println(" " + f + ". " + last + ": " + totals[i]);
+				System.out.println(f + ". " + last + ": " + String.format("%.2f",totals[i]));
 			}
 			
 		// No more to scan, so this is to close the scanner:	
@@ -75,9 +75,8 @@ public class A1Novice {
 		
 		for (int i=0; i<quantity.length; i++) {
 			c += quantity[i]*cost[i];
+						
 			
-			String.format("%.2f", c);
-				
 		}
 		
 		return c;
