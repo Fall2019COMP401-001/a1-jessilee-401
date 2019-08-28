@@ -20,7 +20,7 @@ public class A1Adept {
 	  		String inventoryItem = scan.next();
 	  			
 	 		double inventoryPrice = scan.nextDouble();
-	 			double[] price = new double[inventoryPrice];
+	 	//		double[] price = new double[inventoryPrice];
 		}	
 		
 		// declaration of the number of customers:
@@ -38,8 +38,8 @@ public class A1Adept {
 		 		for (int p=0; p<totalItemsBought; p++) {
 		 			int itemQuantity = scan.nextInt();
 		 				int[] quantity = new int[itemQuantity];
-		 			double itemPrice = ()
-		 			String item = scan.next();
+		 			double itemPrice = scan.nextDouble();
+		 	//		String item = scan.next();
 		 		
 	 			}
 		 		
