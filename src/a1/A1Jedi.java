@@ -18,6 +18,7 @@ public class A1Jedi {
 		
 		String[] item = new String[inventory];
 		
+		
 		for (int i=0; i<inventory; i++) {
 			
 	  		String inventoryItem = scan.next();
@@ -37,6 +38,11 @@ public class A1Jedi {
  		
 	 	for (int j=0; j<numCustomers; j++) {
 	 		
+	 		boolean[] f = new boolean[inventory];
+	 		for (int foop=0; foop<inventory; foop++) {
+	 			f[foop] = false;
+	 		}
+	 		
 	 		String first = scan.next();
 	 		String last = scan.next();
 	 		
@@ -54,27 +60,17 @@ public class A1Jedi {
 	 				
 	 				if (itemBought.equals(item[l])) {
 	 					whatQuantity[l] += quantityBought;
-	 					customerTotals[l] += 1;
+	 					if (f[l] = false) {
+	 						customerTotals[l] += 1;	
+	 						f[l] = true;
+	 					}
+	 					
 	 				}
 	 			}
 	 			
 	 			
 	 		}
-	 		
-//	 		for (int m=0; m<inventory; m++) {
-//	 			
-//	 			if (customerTotals[m] == 0) {
-//	 				System.out.println("No customers bought " + item[m]);
-//	 				
-//	 			} else {
-//	 				System.out.println(customerTotals[m] + " customers bought " + whatQuantity + item[m]);
-//	 			}
-//	 			
-//	 		
-//	 			
-//	 		}
-	 		
-	
+	 
 	 	}
 	 	
  		for (int m=0; m<inventory; m++) {
@@ -84,10 +80,9 @@ public class A1Jedi {
  				
  			} else {
  				System.out.println(customerTotals[m] + " customers bought " + whatQuantity[m]+ " " + item[m]);
+ 				
  			}
- 			
- 		
- 			
+ 				
  		}
 	}
 }
