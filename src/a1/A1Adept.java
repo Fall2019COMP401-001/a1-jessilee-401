@@ -14,8 +14,8 @@ public class A1Adept {
 		
 		int inventory = scan.nextInt();
 		
-		// An array declaration to store the item and price, & for
-		// loop to run through the input item info:
+		// An array declaration to store the item and price, & a 
+		// for loop to run through the input item info:
 		
 		String[] item = new String[inventory];
 		double[] price = new double[inventory];
@@ -39,9 +39,10 @@ public class A1Adept {
 	 	String[] lastname = new String[numCustomers];
 	 	
  		double cost = 0; // initialized to keep track of individual total prices
- 		double[] totals = new double[numCustomers];
+ 		double[] totals = new double[numCustomers]; // to store each customer's (index) final total
 
-	 	
+	 	// for loop to scan through initial customer data:
+ 		
 	 	for (int j=0; j<numCustomers; j++) {
 	 		
 	 		String first = scan.next();
@@ -52,7 +53,7 @@ public class A1Adept {
 	 		
 	 		int totalItemsBought = scan.nextInt();
 	 		
-	 		double[] register = new double[totalItemsBought]; 
+	 		double[] register = new double[totalItemsBought]; // to hold price of items one customer bought
 	 		
 	 		// for loop to run through customer purchases:
 	 		
@@ -62,6 +63,7 @@ public class A1Adept {
 		 			String itemInCart = scan.next();
 		 			
 			 	// another for loop to find purchased item in inventory array:
+		 			
 			 		for (int l = 0; l < inventory; l++) { 
 
 			 			if (itemInCart.equals(item[l])) {
@@ -69,82 +71,44 @@ public class A1Adept {
 			 				cost = price[l]*itemQuantity;
 			 				register[k] = cost;
 			 			}
-//					 	double totalCost = 0;
-//					 	for (int m=0; m<totalItemsBought; m++) {
-//					 		totalCost += register[m];
-//					 		totals[j] = totalCost;
-//					 	}
-					 	
-					 	
+			 			
 			 		}
 			 		double totalCost = 0;
+			 		
 				 	for (int m=0; m<totalItemsBought; m++) {
 				 		totalCost += register[m];
 				 		totals[j] = totalCost;
 				 	}
-
-			 	
-	 	}
-	
-		 
-	 }
 	 	
-	 	// set variables and started for loop to compare totals:
- 		
+		 		}	
+	
+	 	}
+	 	
+	 	// set variables and started for loop with nested if-else 
+	 	// statements to compare totals:
+
 	 	double smaller = totals[0];
 	 	double bigger = totals[0];
 
 	 	String biggest = "";
 	 	String smallest = "";
-//	 	int hello = 0;
-//	 	 for (int p = 0; p < totals.length; p++) {
-//			 if (totals[p] > bigger) {
-//				 totals[p] = bigger;
-//				 hello = p;
-//				 
-//			 }
-//	 	 }
-//		 biggest = firstname[hello] + " " + lastname[hello];
-//		 int newn = 0;
-//		 for (int n = 0; n < totals.length; n++) {
-//			 
-//			 if (totals[n] < smaller) {
-//				 totals[n] = smaller;
-//				 newn = n;
-//				 
-//
-//			 }
-//			 
-//		 } 
-//		 smallest = firstname[newn] + " " + lastname[newn];
-		 
-		 
-		 for (int n=0; n<totals.length; n++) {
+	 		 
+		for (int n=0; n<totals.length; n++) {
 			 
-			 if (totals.length == 1) {
-				bigger = totals[n];
-				biggest = firstname[n] + " " + lastname[n];
+			if (totals[n] <= smaller) {
+		 		smaller = totals[n];
+		 		smallest = firstname[n] + " " + lastname[n];
+			}	
 					
-				smaller = totals[n];
-				smallest = firstname[n] + " " + lastname[n];
-				
-				} else {
-					if (totals[n] < smaller) {
-		 				smaller = totals[n];
-		 				smallest = firstname[n] + " " + lastname[n];
-						
-			 		} else {
-			 			if (totals[n] > bigger) {
-			 				bigger = totals[n];	
-							biggest = firstname[n] + " " + lastname[n];					
+			 if (totals[n] >= bigger) {
+			 	bigger = totals[n];	
+				biggest = firstname[n] + " " + lastname[n];					
 		
-			 			}
-	 			
-			 		} 
-	 			
-				}
+			 }
 	 	
-		 }
+		}
+		
+		// to find the average (avg) of all price totals:
 		
 		double add = 0;
 		double avg = add;
@@ -155,14 +119,12 @@ public class A1Adept {
 		
 		avg = add / totals.length;
 		
+		// code to print output:
 		
 		System.out.println("Biggest: " + biggest + " (" + String.format("%.2f",bigger) + ")");
 		System.out.println("Smallest: " + smallest + " (" + String.format("%.2f",smaller) + ")");
 	 	System.out.println("Average: " + String.format("%.2f", avg));	
 	 
-	 }
+	}
 	
-
-	 
-		
 }
