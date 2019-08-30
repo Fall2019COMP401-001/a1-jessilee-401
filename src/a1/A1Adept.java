@@ -40,7 +40,6 @@ public class A1Adept {
 	 	
  		double cost = 0; // initialized to keep track of individual total prices
  		double[] totals = new double[numCustomers];
- 		
 
 	 	
 	 	for (int j=0; j<numCustomers; j++) {
@@ -58,7 +57,7 @@ public class A1Adept {
 	 		// for loop to run through customer purchases:
 	 		
 		 		for (int k=0; k<totalItemsBought; k++) {
-//		 			System.out.println(k);
+		 			
 		 			int itemQuantity = scan.nextInt();
 		 			String itemInCart = scan.next();
 		 			
@@ -70,12 +69,19 @@ public class A1Adept {
 			 				cost = price[l]*itemQuantity;
 			 				register[k] = cost;
 			 			}
-					 	double totalCost = 0;
-					 	for (int m=0; m<totalItemsBought; m++) {
-					 		totalCost += register[m];
-					 		totals[j] = totalCost;
-					 	}
+//					 	double totalCost = 0;
+//					 	for (int m=0; m<totalItemsBought; m++) {
+//					 		totalCost += register[m];
+//					 		totals[j] = totalCost;
+//					 	}
+					 	
+					 	
 			 		}
+			 		double totalCost = 0;
+				 	for (int m=0; m<totalItemsBought; m++) {
+				 		totalCost += register[m];
+				 		totals[j] = totalCost;
+				 	}
 
 			 	
 	 	}
@@ -90,55 +96,55 @@ public class A1Adept {
 
 	 	String biggest = "";
 	 	String smallest = "";
-	 	int hello = 0;
-	 	 for (int p = 0; p < totals.length; p++) {
-			 if (totals[p] > bigger) {
-				 totals[p] = bigger;
-				 hello = p;
-				 
-			 }
-	 	 }
-		 biggest = firstname[hello] + " " + lastname[hello];
-		 int newn = 0;
-		 for (int n = 0; n < totals.length; n++) {
-			 
-			 if (totals[n] < smaller) {
-				 totals[n] = smaller;
-				 newn = n;
-				 
-
-			 }
-			 
-		 } 
-		 smallest = firstname[newn] + " " + lastname[newn];
+//	 	int hello = 0;
+//	 	 for (int p = 0; p < totals.length; p++) {
+//			 if (totals[p] > bigger) {
+//				 totals[p] = bigger;
+//				 hello = p;
+//				 
+//			 }
+//	 	 }
+//		 biggest = firstname[hello] + " " + lastname[hello];
+//		 int newn = 0;
+//		 for (int n = 0; n < totals.length; n++) {
+//			 
+//			 if (totals[n] < smaller) {
+//				 totals[n] = smaller;
+//				 newn = n;
+//				 
+//
+//			 }
+//			 
+//		 } 
+//		 smallest = firstname[newn] + " " + lastname[newn];
 		 
 		 
-		 
+		 for (int n=0; n<totals.length; n++) {
 			 
-//			 if (totals.length == 1) {
-//				bigger = totals[n];
-//				biggest = firstname[n] + " " + lastname[n];
-//					
-//				smaller = totals[n];
-//				smallest = firstname[n] + " " + lastname[n];
-//				
-//				} else {
-//					if (totals[n] < smaller) {
-//		 				smaller = totals[n];
-//		 				smallest = firstname[n] + " " + lastname[n];
-//						
-//			 		} else {
-//			 			if (totals[n] > bigger) {
-//			 				bigger = totals[n];	
-//							biggest = firstname[n] + " " + lastname[n];					
-//		
-//			 			}
-//	 			
-//			 		} 
-//	 			
-//				}
+			 if (totals.length == 1) {
+				bigger = totals[n];
+				biggest = firstname[n] + " " + lastname[n];
+					
+				smaller = totals[n];
+				smallest = firstname[n] + " " + lastname[n];
+				
+				} else {
+					if (totals[n] < smaller) {
+		 				smaller = totals[n];
+		 				smallest = firstname[n] + " " + lastname[n];
+						
+			 		} else {
+			 			if (totals[n] > bigger) {
+			 				bigger = totals[n];	
+							biggest = firstname[n] + " " + lastname[n];					
+		
+			 			}
+	 			
+			 		} 
+	 			
+				}
 	 	
-		 
+		 }
 		
 		double add = 0;
 		double avg = add;
