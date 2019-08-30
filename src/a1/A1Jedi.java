@@ -60,7 +60,7 @@ public class A1Jedi {
 	 				
 	 				if (itemBought.equals(item[l])) {
 	 					whatQuantity[l] += quantityBought;
-	 					if (f[l] = false) {
+	 					if (f[l] == false) {
 	 						customerTotals[l] += 1;	
 	 						f[l] = true;
 	 					}
