@@ -121,8 +121,8 @@ public class A1Adept {
 		
 		avg = add / totals.length;
 		
-		System.out.println("Biggest: " + biggest + " (" + bigger + ")");
-		System.out.println("Smallest: " + smallest + " (" + smaller + ")");
+		System.out.println("Biggest: " + biggest + " (" + String.format("%.2f",bigger) + ")");
+		System.out.println("Smallest: " + smallest + " (" + String.format("%.2f",smaller) + ")");
 	 	System.out.println("Average: " + String.format("%.2f", avg));	
 	 
 	 }
