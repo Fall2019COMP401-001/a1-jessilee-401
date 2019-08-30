@@ -41,7 +41,7 @@ public class A1Adept {
  		double cost = 0; // initialized to keep track of individual total prices
  		double[] totals = new double[numCustomers];
  		
-// 		double average = avg(totals);
+
 	 	
 	 	for (int j=0; j<numCustomers; j++) {
 	 		
@@ -58,7 +58,7 @@ public class A1Adept {
 	 		// for loop to run through customer purchases:
 	 		
 		 		for (int k=0; k<totalItemsBought; k++) {
-		 			
+//		 			System.out.println(k);
 		 			int itemQuantity = scan.nextInt();
 		 			String itemInCart = scan.next();
 		 			
@@ -70,47 +70,75 @@ public class A1Adept {
 			 				cost = price[l]*itemQuantity;
 			 				register[k] = cost;
 			 			}
+					 	double totalCost = 0;
+					 	for (int m=0; m<totalItemsBought; m++) {
+					 		totalCost += register[m];
+					 		totals[j] = totalCost;
+					 	}
 			 		}
 
-		 	double totalCost = 0;
-		 	for (int m=0; m<totalItemsBought; m++) {
-		 		totalCost += register[m];
-		 		totals[j] = totalCost;
-		 	}
 			 	
 	 	}
 	
-//	 	scan.close(); 
-	 	
-		 
-//		 double average = avg(totals);
-//		 System.out.println("Average: " + average); 
 		 
 	 }
 	 	
 	 	// set variables and started for loop to compare totals:
  		
 	 	double smaller = totals[0];
-	 	double bigger = 0;
-//	 	smaller = totals[0];
+	 	double bigger = totals[0];
+
 	 	String biggest = "";
 	 	String smallest = "";
-		 	
-		 for (int n = 0; n < totals.length; n++) {
-			
-			if (totals[n] > bigger) {
-				bigger = totals[n];	
-				biggest = firstname[n] + " " + lastname[n];
+	 	int hello = 0;
+	 	 for (int p = 0; p < totals.length; p++) {
+			 if (totals[p] > bigger) {
+				 totals[p] = bigger;
+				 hello = p;
 				 
-	 		} else {
-	 			if (totals[n] < smaller) {
-	 				smaller = totals[n];
-	 				smallest = firstname[n] + " " + lastname[n];
-	 				
-	 			}
-	 		}
+			 }
+	 	 }
+		 biggest = firstname[hello] + " " + lastname[hello];
+		 int newn = 0;
+		 for (int n = 0; n < totals.length; n++) {
+			 
+			 if (totals[n] < smaller) {
+				 totals[n] = smaller;
+				 newn = n;
+				 
+
+			 }
+			 
+		 } 
+		 smallest = firstname[newn] + " " + lastname[newn];
+		 
+		 
+		 
+			 
+//			 if (totals.length == 1) {
+//				bigger = totals[n];
+//				biggest = firstname[n] + " " + lastname[n];
+//					
+//				smaller = totals[n];
+//				smallest = firstname[n] + " " + lastname[n];
+//				
+//				} else {
+//					if (totals[n] < smaller) {
+//		 				smaller = totals[n];
+//		 				smallest = firstname[n] + " " + lastname[n];
+//						
+//			 		} else {
+//			 			if (totals[n] > bigger) {
+//			 				bigger = totals[n];	
+//							biggest = firstname[n] + " " + lastname[n];					
+//		
+//			 			}
+//	 			
+//			 		} 
+//	 			
+//				}
 	 	
-		 }
+		 
 		
 		double add = 0;
 		double avg = add;
@@ -121,27 +149,14 @@ public class A1Adept {
 		
 		avg = add / totals.length;
 		
+		
 		System.out.println("Biggest: " + biggest + " (" + String.format("%.2f",bigger) + ")");
 		System.out.println("Smallest: " + smallest + " (" + String.format("%.2f",smaller) + ")");
 	 	System.out.println("Average: " + String.format("%.2f", avg));	
 	 
 	 }
 	
-//	static double avg (double[] totals) {
-//		
-//		double add = 0;
-//		double hehe = 0;
-//		
-//		for (int o = 0; o < totals.length; o++) {
-//			
-//			add += totals[o];
-//			
-//		}
-//		
-//		hehe = add / totals.length;
-//		System.out.println(add);
-//		return hehe;
-//	}
+
 	 
 		
 }
