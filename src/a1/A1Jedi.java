@@ -17,8 +17,7 @@ public class A1Jedi {
 		// for loop to run through the input item info:
 		
 		String[] item = new String[inventory];
-		
-		
+
 		for (int i=0; i<inventory; i++) {
 			
 	  		String inventoryItem = scan.next();
@@ -28,17 +27,19 @@ public class A1Jedi {
 	 	
 		}	
 		
-		// integer count of the number of customers:
-		
-	 	int numCustomers = scan.nextInt();
-	 	int[] whatQuantity = new int[inventory];
-	 	int[] customerTotals = new int[inventory];
+	 	int numCustomers = scan.nextInt(); // integer count of the number of customers
+	 	int[] whatQuantity = new int[inventory]; // to store quantities of items purchased
+	 	int[] customerTotals = new int[inventory]; // array to count how many customers purchased each item
 
 	 	// for loop to scan through customer data:
  		
 	 	for (int j=0; j<numCustomers; j++) {
 	 		
-	 		boolean[] f = new boolean[inventory];
+	 		// a boolean array with each element initialized to false created 
+	 		// to increment the count of customers purchasing a specific 
+	 		// item in inventory in the loop:
+	 		
+	 		boolean[] f = new boolean[inventory]; 
 	 		for (int foop=0; foop<inventory; foop++) {
 	 			f[foop] = false;
 	 		}
@@ -54,35 +55,41 @@ public class A1Jedi {
 	 			
 	 			String itemBought = scan.next();
 
-	 		
+	 			// for loop to match the item held in variable itemBought with 
+	 			// the same item in the item array of the store's inventory:
 	 			
 	 			for (int l=0; l<inventory; l++) {
 	 				
 	 				if (itemBought.equals(item[l])) {
-	 					whatQuantity[l] += quantityBought;
+	 					whatQuantity[l] += quantityBought; // updating quantity totals of how many of the specific item was purchased
 	 					if (f[l] == false) {
-	 						customerTotals[l] += 1;	
-	 						f[l] = true;
+	 						customerTotals[l] += 1;	// incrementing how many customers purchased itemBought by 1 customer
+	 						f[l] = true; 
+	 						// change the element to boolean true to prevent customerTotals from incrementing 
+	 						// IF the same customer purchased the item again
 	 					}
 	 					
 	 				}
+	 				
 	 			}
-	 			
-	 			
+	 			 			
 	 		}
 	 
 	 	}
 	 	
+	 	// for loop to run through the store's item array (inventory) and print out x number of customers 
+	 	// purchased y quantity of items.
  		for (int m=0; m<inventory; m++) {
  			
- 			if (customerTotals[m] == 0) {
+ 			if (customerTotals[m] == 0) { // in case no customers purchased the specific item
  				System.out.println("No customers bought " + item[m]);
  				
- 			} else {
+ 			} else { 
  				System.out.println(customerTotals[m] + " customers bought " + whatQuantity[m]+ " " + item[m]);
  				
  			}
  				
  		}
+ 		
 	}
 }
